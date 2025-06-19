@@ -1,0 +1,33 @@
+# Operating System Files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+.localized
+
+# Editor/IDE specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Node.js specific (if you have a root package.json or root node_modules)
+/node_modules
+
+# Logs and temporary files
+*.log
+*.tmp
+tmp/
+
+# If you have any build output or compiled files at the root
+/dist
+/build
+
+# Environment variables at the root level
+.env
+
+# Crash reports
+hs_err_pid*
+
+# Any other specific files/folders you want to ignore at the root
+# For example, if you have a .zip file of the project:
+# *.zip
