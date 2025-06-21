@@ -4,11 +4,13 @@ const dotenv = require('dotenv').config();
 const cors = require('cors');
 const path = require('path');
 const connectDB = require('./config/db');
+
 const projectRoutes = require('./routes/projectRoutes');
 const certificateRoutes = require('./routes/certificateRoutes');
 const contactRoutes = require('./routes/contactRoutes');
 const { errorHandler } = require('./middleware/errorHandler');
 
+// Connect to MongoDB
 connectDB();
 
 const app = express();
@@ -24,14 +26,16 @@ app.use('/api/projects', projectRoutes);
 app.use('/api/certificates', certificateRoutes);
 app.use('/api/contact', contactRoutes);
 
-// Serve React frontend from frontend/build
-app.use(express.static(path.join(__dirname, '../../frontend/build')));
+// Serve frontend React build in production
+const buildPath = path.resolve(__dirname, '../../frontend/build');
+app.use(express.static(buildPath));
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../../frontend/build', 'index.html'));
+  res.sendFile(path.join(buildPath, 'index.html'));
 });
 
-// Error handling middleware
+// Error handler (should be after routes)
 app.use(errorHandler);
 
+// Start server
 app.listen(port, () => console.log(`Server running on port ${port}`));
