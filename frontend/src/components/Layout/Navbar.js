@@ -1,43 +1,100 @@
-    // frontend/src/components/Layout/Navbar.js
-    import React from 'react';
-    import { Link } from 'react-router-dom';
-    import { Flex, Box, Spacer, HStack } from '@chakra-ui/react'; // Using Chakra UI for Navbar layout
+// frontend/src/components/Layout/Navbar.js
+import React from 'react';
+import { Link } from 'react-router-dom';
+import {
+    Flex,
+    Box,
+    HStack,
+    IconButton,
+    useDisclosure,
+    Drawer,
+    DrawerOverlay,
+    DrawerContent,
+    DrawerCloseButton,
+    DrawerHeader,
+    DrawerBody,
+    VStack
+} from '@chakra-ui/react';
+import { HamburgerIcon } from '@chakra-ui/icons'; // Import HamburgerIcon
 
-    function Navbar() {
-        return (
-            <Flex
-                as="nav"
-                p={4}
-                bg="gray.800"
-                color="white"
-                align="center"
-                justify="space-between"
-                wrap="wrap"
-                boxShadow="md"
-            >
-                {/* Logo or Your Name */}
-                <Box>
-                    <Link to="/" style={{ fontSize: 'xl', fontWeight: 'bold', color: 'red', textDecoration: 'none' }}>
-                        Chinthada Murali Naga Raju
-                    </Link>
-                </Box>
+// IMPORTANT: If you encounter "Module not found: Error: Can't resolve '@chakra-ui/icons'",
+// please install it by running: npm install @chakra-ui/icons @chakra-ui/react @emotion/react@^11 @emotion/styled@^11 framer-motion@^6
 
-                <Spacer />
+function Navbar() {
+    // useDisclosure hook to control the mobile drawer's open/close state
+    const { isOpen, onOpen, onClose } = useDisclosure();
 
-                {/* Navigation Links */}
-                <HStack spacing={8} display={{ base: 'none', md: 'flex' }}> {/* Hide on mobile, show on md and up */}
-                    <Link to="/" _hover={{ color: "teal.300" }}>Home</Link>
-                    <Link to="/about" _hover={{ color: "teal.300" }}>About</Link>
-                    <Link to="/projects" _hover={{ color: "teal.300" }}>Projects</Link>
-                    <Link to="/skills" _hover={{ color: "teal.300" }}>Skills</Link>
-                    <Link to="/certificates" _hover={{ color: "teal.300" }}>Certificates</Link> {/* <-- NEW: Add Certificates Link */}
-                    <Link to="/contact" _hover={{ color: "teal.300" }}>Contact</Link>
-                </HStack>
+    // Common style for navigation links, both desktop and mobile
+    const navLinkStyle = {
+        color: 'white',
+        textDecoration: 'none',
+        padding: '8px 12px', // Add some padding for better clickability
+        borderRadius: 'md',  // Rounded corners for links
+        transition: 'background-color 0.2s ease-in-out', // Smooth transition for hover
+    };
 
-                {/* You might add a mobile menu icon here for responsive design */}
-            </Flex>
-        );
-    }
+    // Hover style for navigation links
+    const navLinkHoverStyle = {
+        backgroundColor: 'teal.600', // Darker teal on hover
+        color: 'white', // Ensure text color remains white on hover
+    };
 
-    export default Navbar;
-    
+    return (
+        <Flex
+            as="nav"
+            p={4}
+            bg="gray.800"
+            color="white"
+            align="center"
+            justify="center" // Centered on desktop
+            wrap="wrap"
+            boxShadow="md"
+            position="sticky" // Make navbar sticky at the top
+            top="0"
+            zIndex="10" // Ensure it stays on top of other content
+        >
+            {/* Hamburger Icon for Mobile (visible only on small screens) */}
+            <Box display={{ base: 'flex', md: 'none' }} position="absolute" left="4">
+                <IconButton
+                    icon={<HamburgerIcon />}
+                    onClick={onOpen}
+                    variant="ghost"
+                    color="white"
+                    aria-label="Open Navigation"
+                    _hover={{ bg: 'gray.700' }}
+                />
+            </Box>
+
+            {/* Desktop Navigation Links (hidden on mobile) */}
+            <HStack spacing={8} display={{ base: 'none', md: 'flex' }}>
+                <Link to="/" style={navLinkStyle} onMouseEnter={e => e.currentTarget.style.backgroundColor = navLinkHoverStyle.backgroundColor} onMouseLeave={e => e.currentTarget.style.backgroundColor = navLinkStyle.backgroundColor}>Home</Link>
+                <Link to="/about" style={navLinkStyle} onMouseEnter={e => e.currentTarget.style.backgroundColor = navLinkHoverStyle.backgroundColor} onMouseLeave={e => e.currentTarget.style.backgroundColor = navLinkStyle.backgroundColor}>About</Link>
+                <Link to="/projects" style={navLinkStyle} onMouseEnter={e => e.currentTarget.style.backgroundColor = navLinkHoverStyle.backgroundColor} onMouseLeave={e => e.currentTarget.style.backgroundColor = navLinkStyle.backgroundColor}>Projects</Link>
+                <Link to="/skills" style={navLinkStyle} onMouseEnter={e => e.currentTarget.style.backgroundColor = navLinkHoverStyle.backgroundColor} onMouseLeave={e => e.currentTarget.style.backgroundColor = navLinkStyle.backgroundColor}>Skills</Link>
+                <Link to="/certificates" style={navLinkStyle} onMouseEnter={e => e.currentTarget.style.backgroundColor = navLinkHoverStyle.backgroundColor} onMouseLeave={e => e.currentTarget.style.backgroundColor = navLinkStyle.backgroundColor}>Certificates</Link>
+                <Link to="/contact" style={navLinkStyle} onMouseEnter={e => e.currentTarget.style.backgroundColor = navLinkHoverStyle.backgroundColor} onMouseLeave={e => e.currentTarget.style.backgroundColor = navLinkStyle.backgroundColor}>Contact</Link>
+            </HStack>
+
+            {/* Mobile Drawer */}
+            <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
+                <DrawerOverlay />
+                <DrawerContent bg="gray.800" color="white">
+                    <DrawerCloseButton />
+                    <DrawerHeader borderBottomWidth="1px" borderColor="gray.700">Navigation</DrawerHeader>
+                    <DrawerBody>
+                        <VStack spacing={4} align="stretch" onClick={onClose}> {/* Close drawer on link click */}
+                            <Link to="/" style={navLinkStyle} onMouseEnter={e => e.currentTarget.style.backgroundColor = navLinkHoverStyle.backgroundColor} onMouseLeave={e => e.currentTarget.style.backgroundColor = navLinkStyle.backgroundColor}>Home</Link>
+                            <Link to="/about" style={navLinkStyle} onMouseEnter={e => e.currentTarget.style.backgroundColor = navLinkHoverStyle.backgroundColor} onMouseLeave={e => e.currentTarget.style.backgroundColor = navLinkStyle.backgroundColor}>About</Link>
+                            <Link to="/projects" style={navLinkStyle} onMouseEnter={e => e.currentTarget.style.backgroundColor = navLinkHoverStyle.backgroundColor} onMouseLeave={e => e.currentTarget.style.backgroundColor = navLinkStyle.backgroundColor}>Projects</Link>
+                            <Link to="/skills" style={navLinkStyle} onMouseEnter={e => e.currentTarget.style.backgroundColor = navLinkHoverStyle.backgroundColor} onMouseLeave={e => e.currentTarget.style.backgroundColor = navLinkStyle.backgroundColor}>Skills</Link>
+                            <Link to="/certificates" style={navLinkStyle} onMouseEnter={e => e.currentTarget.style.backgroundColor = navLinkHoverStyle.backgroundColor} onMouseLeave={e => e.currentTarget.style.backgroundColor = navLinkStyle.backgroundColor}>Certificates</Link>
+                            <Link to="/contact" style={navLinkStyle} onMouseEnter={e => e.currentTarget.style.backgroundColor = navLinkHoverStyle.backgroundColor} onMouseLeave={e => e.currentTarget.style.backgroundColor = navLinkStyle.backgroundColor}>Contact</Link>
+                        </VStack>
+                    </DrawerBody>
+                </DrawerContent>
+            </Drawer>
+        </Flex>
+    );
+}
+
+export default Navbar;
