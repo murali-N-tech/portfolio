@@ -5,10 +5,24 @@ import Footer from './Footer'; // Import your Footer component
 
 // Layout component accepts 'children' as a prop
 function Layout({ children }) {
+    // Define styles for the overall layout, including the classic background
+    const layoutStyle = {
+        minHeight: '100vh', // Ensure the layout takes at least the full viewport height
+        display: 'flex',
+        flexDirection: 'column',
+        // Classic background styling
+        backgroundImage: 'url("https://res.cloudinary.com/dkpjimiip/image/upload/v1750515601/Blue_Gradient_Modern_Professional_Company_Zoom_Virtual_Background_b808ve.png")', // Placeholder for a classic background image
+        backgroundSize: 'cover',        // Cover the entire area
+        backgroundPosition: 'center',   // Center the background image
+        backgroundAttachment: 'fixed',  // Keep the background fixed during scroll
+        backgroundColor: '#f0f0f0',     // Fallback background color
+        color: '#333333',               // Default text color for the layout
+    };
+
     return (
-        <div>
+        <div style={layoutStyle}>
             <Navbar /> {/* Your navigation bar */}
-            <main style={{ minHeight: '80vh', padding: '20px' }}> {/* Main content area */}
+            <main style={{ flexGrow: 1, padding: '20px' }}> {/* Main content area, grows to fill space */}
                 {children} {/* This is where your page components (Home, About, etc.) will be rendered */}
             </main>
             <Footer /> {/* Your footer */}
@@ -16,4 +30,4 @@ function Layout({ children }) {
     );
 }
 
-export default Layout; // <--- THIS IS CRUCIAL: Export the Layout component as default
+export default Layout; // Export the Layout component as default
