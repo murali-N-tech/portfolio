@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa'; // Import icons
+import { Link } from 'react-router-dom'; // Add this import
 
 function Footer() {
     // Define inline styles for the footer and its elements
@@ -32,6 +33,49 @@ function Footer() {
         color: '#63b3ed', // A light blue color on hover
         transform: 'scale(1.1)', // Slightly enlarge on hover
     };
+
+    // Add navigation links style
+    const navLinksStyle = {
+        display: 'flex',
+        gap: '2rem',
+        margin: '10px 0',
+        flexWrap: 'wrap',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '100%',
+    };
+
+    // Responsive styles for navigation links
+    const navLinkStyle = {
+        color: '#e2e8f0',
+        textDecoration: 'none',
+        fontWeight: 600,
+        fontSize: '1.05rem',
+        transition: 'color 0.2s',
+        padding: '8px 0',
+        borderBottom: '2px solid transparent',
+        textAlign: 'center',
+        width: 'auto',
+    };
+
+    const navLinkHoverStyle = {
+        color: '#63b3ed',
+        borderBottom: '2px solid #63b3ed',
+    };
+
+    // Media query for mobile responsiveness
+    const mobileNavLinksStyle = {
+        flexDirection: 'column',
+        gap: '0.5rem',
+    };
+
+    // Detect mobile screen
+    const [isMobile, setIsMobile] = React.useState(window.innerWidth <= 600);
+    React.useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth <= 600);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     return (
         <footer style={footerStyle}>
@@ -75,6 +119,77 @@ function Footer() {
                     <FaLinkedin />
                 </a>
             </div>
+
+            {/* Navigation Links */}
+            <div
+                style={
+                    isMobile
+                        ? { ...navLinksStyle, ...mobileNavLinksStyle }
+                        : navLinksStyle
+                }
+            >
+                <Link
+                    to="/"
+                    style={navLinkStyle}
+                    onMouseEnter={e => {
+                        e.currentTarget.style.color = navLinkHoverStyle.color;
+                        e.currentTarget.style.borderBottom = navLinkHoverStyle.borderBottom;
+                    }}
+                    onMouseLeave={e => {
+                        e.currentTarget.style.color = navLinkStyle.color;
+                        e.currentTarget.style.borderBottom = navLinkStyle.borderBottom;
+                    }}
+                >Home</Link>
+                <Link
+                    to="/about"
+                    style={navLinkStyle}
+                    onMouseEnter={e => {
+                        e.currentTarget.style.color = navLinkHoverStyle.color;
+                        e.currentTarget.style.borderBottom = navLinkHoverStyle.borderBottom;
+                    }}
+                    onMouseLeave={e => {
+                        e.currentTarget.style.color = navLinkStyle.color;
+                        e.currentTarget.style.borderBottom = navLinkStyle.borderBottom;
+                    }}
+                >About</Link>
+                <Link
+                    to="/projects"
+                    style={navLinkStyle}
+                    onMouseEnter={e => {
+                        e.currentTarget.style.color = navLinkHoverStyle.color;
+                        e.currentTarget.style.borderBottom = navLinkHoverStyle.borderBottom;
+                    }}
+                    onMouseLeave={e => {
+                        e.currentTarget.style.color = navLinkStyle.color;
+                        e.currentTarget.style.borderBottom = navLinkStyle.borderBottom;
+                    }}
+                >Projects</Link>
+                <Link
+                    to="/skills"
+                    style={navLinkStyle}
+                    onMouseEnter={e => {
+                        e.currentTarget.style.color = navLinkHoverStyle.color;
+                        e.currentTarget.style.borderBottom = navLinkHoverStyle.borderBottom;
+                    }}
+                    onMouseLeave={e => {
+                        e.currentTarget.style.color = navLinkStyle.color;
+                        e.currentTarget.style.borderBottom = navLinkStyle.borderBottom;
+                    }}
+                >Skills</Link>
+                <Link
+                    to="/contact"
+                    style={navLinkStyle}
+                    onMouseEnter={e => {
+                        e.currentTarget.style.color = navLinkHoverStyle.color;
+                        e.currentTarget.style.borderBottom = navLinkHoverStyle.borderBottom;
+                    }}
+                    onMouseLeave={e => {
+                        e.currentTarget.style.color = navLinkStyle.color;
+                        e.currentTarget.style.borderBottom = navLinkStyle.borderBottom;
+                    }}
+                >Contact</Link>
+            </div>
+
             <p style={{ margin: '5px 0' }}>&copy; {new Date().getFullYear()} Murali. All rights reserved.</p>
         </footer>
     );
