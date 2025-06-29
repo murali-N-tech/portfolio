@@ -39,7 +39,7 @@ function About() {
 
     // Placeholder URL for your resume.
     // Replace this with the actual URL to your resume PDF.
-    const resumeUrl = 'https://drive.google.com/file/d/1VgSfrkFa7rAljQ05isGULvng_eHr6GYS/view?usp=sharing'; 
+    const resumeUrl = 'https://drive.google.com/file/d/1t_g5ZMyNe0VWIiGTjDswjOkLDe24F6SE/view?usp=sharing'; 
 
     return (
         <MotionBox
