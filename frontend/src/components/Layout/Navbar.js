@@ -80,7 +80,7 @@ function Navbar() {
                 <DrawerOverlay />
                 <DrawerContent bg="gray.800" color="white">
                     <DrawerCloseButton />
-                    <DrawerHeader borderBottomWidth="1px" borderColor="gray.700">Navigation</DrawerHeader>
+                    <DrawerHeader borderBottomWidth="1px" borderColor="gray.700">Portfolio</DrawerHeader>
                     <DrawerBody>
                         <VStack spacing={4} align="stretch" onClick={onClose}> {/* Close drawer on link click */}
                             <Link to="/" style={navLinkStyle} onMouseEnter={e => e.currentTarget.style.backgroundColor = navLinkHoverStyle.backgroundColor} onMouseLeave={e => e.currentTarget.style.backgroundColor = navLinkStyle.backgroundColor}>Home</Link>
