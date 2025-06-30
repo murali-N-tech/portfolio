@@ -25,6 +25,32 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>portfolio</title>
+    <style>
+      /* Custom Scrollbar Styles */
+              ::-webkit-scrollbar {
+                width: 10px;
+                background: #e2e8f0;
+              }
+              
+              ::-webkit-scrollbar-thumb {
+                background: linear-gradient(90deg, #3182ce 40%, #805ad5 100%);
+                border-radius: 8px;
+              }
+              
+              ::-webkit-scrollbar-thumb:hover {
+                background: linear-gradient(90deg, #2b6cb0 40%, #6b46c1 100%);
+              }
+              
+              ::-webkit-scrollbar-corner {
+                background: #e2e8f0;
+              }
+              
+              /* For Firefox */
+              html {
+                scrollbar-width: thin;
+                scrollbar-color: #3182ce #e2e8f0;
+              }
+    </style>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
