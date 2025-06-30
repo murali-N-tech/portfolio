@@ -139,7 +139,7 @@ function Footer() {
                         e.currentTarget.style.color = navLinkStyle.color;
                         e.currentTarget.style.borderBottom = navLinkStyle.borderBottom;
                     }}
-                >Home</Link>
+                >🏠</Link>
                 <Link
                     to="/about"
                     style={navLinkStyle}
@@ -151,7 +151,7 @@ function Footer() {
                         e.currentTarget.style.color = navLinkStyle.color;
                         e.currentTarget.style.borderBottom = navLinkStyle.borderBottom;
                     }}
-                >About</Link>
+                >🆎</Link>
                 <Link
                     to="/projects"
                     style={navLinkStyle}
@@ -163,7 +163,7 @@ function Footer() {
                         e.currentTarget.style.color = navLinkStyle.color;
                         e.currentTarget.style.borderBottom = navLinkStyle.borderBottom;
                     }}
-                >Projects</Link>
+                >📂</Link>
                 <Link
                     to="/skills"
                     style={navLinkStyle}
@@ -175,7 +175,7 @@ function Footer() {
                         e.currentTarget.style.color = navLinkStyle.color;
                         e.currentTarget.style.borderBottom = navLinkStyle.borderBottom;
                     }}
-                >Skills</Link>
+                >🧠</Link>
                     <Link
                     to="/Certificates"
                     style={navLinkStyle}
@@ -187,7 +187,7 @@ function Footer() {
                         e.currentTarget.style.color = navLinkStyle.color;
                         e.currentTarget.style.borderBottom = navLinkStyle.borderBottom;
                     }}
-                >Certificates</Link>
+                >📜</Link>
                 <Link
                     to="/contact"
                     style={navLinkStyle}
