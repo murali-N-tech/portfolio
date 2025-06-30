@@ -139,7 +139,7 @@ function Footer() {
                         e.currentTarget.style.color = navLinkStyle.color;
                         e.currentTarget.style.borderBottom = navLinkStyle.borderBottom;
                     }}
-                >🏠</Link>
+                >Home</Link>
                 <Link
                     to="/about"
                     style={navLinkStyle}
@@ -151,7 +151,7 @@ function Footer() {
                         e.currentTarget.style.color = navLinkStyle.color;
                         e.currentTarget.style.borderBottom = navLinkStyle.borderBottom;
                     }}
-                >🆎</Link>
+                >About</Link>
                 <Link
                     to="/projects"
                     style={navLinkStyle}
@@ -163,7 +163,7 @@ function Footer() {
                         e.currentTarget.style.color = navLinkStyle.color;
                         e.currentTarget.style.borderBottom = navLinkStyle.borderBottom;
                     }}
-                >📂</Link>
+                >Projects</Link>
                 <Link
                     to="/skills"
                     style={navLinkStyle}
@@ -175,7 +175,7 @@ function Footer() {
                         e.currentTarget.style.color = navLinkStyle.color;
                         e.currentTarget.style.borderBottom = navLinkStyle.borderBottom;
                     }}
-                >🧠</Link>
+                >skills</Link>
                     <Link
                     to="/Certificates"
                     style={navLinkStyle}
@@ -187,7 +187,7 @@ function Footer() {
                         e.currentTarget.style.color = navLinkStyle.color;
                         e.currentTarget.style.borderBottom = navLinkStyle.borderBottom;
                     }}
-                >📜</Link>
+                >Certificates</Link>
                 <Link
                     to="/contact"
                     style={navLinkStyle}
@@ -199,7 +199,7 @@ function Footer() {
                         e.currentTarget.style.color = navLinkStyle.color;
                         e.currentTarget.style.borderBottom = navLinkStyle.borderBottom;
                     }}
-                >📞</Link>
+                >Contact</Link>
             </div>
 
             <p style={{ margin: '5px 0' }}>&copy; {new Date().getFullYear()} Murali. All rights reserved.</p>
