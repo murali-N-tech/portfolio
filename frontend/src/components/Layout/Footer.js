@@ -199,7 +199,7 @@ function Footer() {
                         e.currentTarget.style.color = navLinkStyle.color;
                         e.currentTarget.style.borderBottom = navLinkStyle.borderBottom;
                     }}
-                >Contact</Link>
+                >Certificates</Link>
             </div>
 
             <p style={{ margin: '5px 0' }}>&copy; {new Date().getFullYear()} Murali. All rights reserved.</p>
