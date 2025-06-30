@@ -188,6 +188,18 @@ function Footer() {
                         e.currentTarget.style.borderBottom = navLinkStyle.borderBottom;
                     }}
                 >Contact</Link>
+                    <Link
+                    to="/Certificates"
+                    style={navLinkStyle}
+                    onMouseEnter={e => {
+                        e.currentTarget.style.color = navLinkHoverStyle.color;
+                        e.currentTarget.style.borderBottom = navLinkHoverStyle.borderBottom;
+                    }}
+                    onMouseLeave={e => {
+                        e.currentTarget.style.color = navLinkStyle.color;
+                        e.currentTarget.style.borderBottom = navLinkStyle.borderBottom;
+                    }}
+                >Contact</Link>
             </div>
 
             <p style={{ margin: '5px 0' }}>&copy; {new Date().getFullYear()} Murali. All rights reserved.</p>
