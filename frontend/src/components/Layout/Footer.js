@@ -118,8 +118,9 @@ function Footer() {
                 >
                     <FaLinkedin />
                 </a>
-            
+            </div>
 
+            
             <p style={{ margin: '5px 0' }}>&copy; {new Date().getFullYear()} Murali. All rights reserved.</p>
         </footer>
     );
