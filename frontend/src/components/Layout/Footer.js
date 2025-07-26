@@ -1,75 +1,37 @@
 import React from 'react';
-import { FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa'; // Import icons
-import { Link } from 'react-router-dom'; // Add this import
+import { FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa';
 
 function Footer() {
-    // Define inline styles for the footer and its elements
     const footerStyle = {
         padding: '20px',
-        background: '#1a202c', // Dark background for a modern look
-        color: '#e2e8f0',     // Light text color
+        background: '#082567', // Updated color
+        color: '#ffffff',
         textAlign: 'center',
-        marginTop: 'auto',    // Pushes footer to the bottom
+        marginTop: 'auto',
         display: 'flex',
-        flexDirection: 'column', // Stack elements vertically
-        alignItems: 'center',    // Center align items horizontally
-        borderRadius: '8px',     // Slightly rounded corners
-        boxShadow: '0 -4px 6px rgba(0, 0, 0, 0.1)', // Subtle shadow
+        flexDirection: 'column',
+        alignItems: 'center',
+        borderRadius: '0px',
+        boxShadow: '0 -4px 6px rgba(0, 0, 0, 0.1)',
     };
 
     const iconsContainerStyle = {
-        margin: '15px 0 10px 0', // Spacing above and below icons
-        display: 'flex',         // Arrange icons in a row
-        gap: '20px',             // Space between icons
+        margin: '15px 0 10px 0',
+        display: 'flex',
+        gap: '20px',
     };
 
     const iconLinkStyle = {
-        color: '#e2e8f0',      // Icon color
-        fontSize: '2.2em',     // Larger icon size
-        transition: 'color 0.3s ease-in-out, transform 0.3s ease-in-out', // Smooth transition for hover effects
+        color: '#ffffff',
+        fontSize: '2.2em',
+        transition: 'color 0.3s ease-in-out, transform 0.3s ease-in-out',
     };
 
     const iconHoverStyle = {
-        color: '#63b3ed', // A light blue color on hover
-        transform: 'scale(1.1)', // Slightly enlarge on hover
+        color: '#87CEFA', // Light blue on hover
+        transform: 'scale(1.15)',
     };
 
-    // Add navigation links style
-    const navLinksStyle = {
-        display: 'flex',
-        gap: '2rem',
-        margin: '10px 0',
-        flexWrap: 'wrap',
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: '100%',
-    };
-
-    // Responsive styles for navigation links
-    const navLinkStyle = {
-        color: '#e2e8f0',
-        textDecoration: 'none',
-        fontWeight: 600,
-        fontSize: '1.05rem',
-        transition: 'color 0.2s',
-        padding: '8px 0',
-        borderBottom: '2px solid transparent',
-        textAlign: 'center',
-        width: 'auto',
-    };
-
-    const navLinkHoverStyle = {
-        color: '#63b3ed',
-        borderBottom: '2px solid #63b3ed',
-    };
-
-    // Media query for mobile responsiveness
-    const mobileNavLinksStyle = {
-        flexDirection: 'column',
-        gap: '0.5rem',
-    };
-
-    // Detect mobile screen
     const [isMobile, setIsMobile] = React.useState(window.innerWidth <= 600);
     React.useEffect(() => {
         const handleResize = () => setIsMobile(window.innerWidth <= 600);
@@ -80,48 +42,64 @@ function Footer() {
     return (
         <footer style={footerStyle}>
             <div style={iconsContainerStyle}>
-                {/* GitHub Icon Link */}
                 <a
-                    href="https://github.com/murali-N-tech" // REPLACE with your GitHub profile URL
+                    href="https://github.com/murali-N-tech"
                     target="_blank"
                     rel="noopener noreferrer"
                     style={iconLinkStyle}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = iconHoverStyle.color, e.currentTarget.style.transform = iconHoverStyle.transform)}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = iconLinkStyle.color, e.currentTarget.style.transform = 'scale(1)')}
+                    onMouseEnter={(e) => {
+                        e.currentTarget.style.color = iconHoverStyle.color;
+                        e.currentTarget.style.transform = iconHoverStyle.transform;
+                    }}
+                    onMouseLeave={(e) => {
+                        e.currentTarget.style.color = iconLinkStyle.color;
+                        e.currentTarget.style.transform = 'scale(1)';
+                    }}
                     title="GitHub Profile"
                 >
                     <FaGithub />
                 </a>
 
-                {/* Instagram Icon Link */}
                 <a
-                    href="https://www.instagram.com/_mr__murali_____/" // REPLACE with your Instagram profile URL
+                    href="https://www.instagram.com/_mr__murali_____/"
                     target="_blank"
                     rel="noopener noreferrer"
                     style={iconLinkStyle}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = iconHoverStyle.color, e.currentTarget.style.transform = iconHoverStyle.transform)}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = iconLinkStyle.color, e.currentTarget.style.transform = 'scale(1)')}
+                    onMouseEnter={(e) => {
+                        e.currentTarget.style.color = iconHoverStyle.color;
+                        e.currentTarget.style.transform = iconHoverStyle.transform;
+                    }}
+                    onMouseLeave={(e) => {
+                        e.currentTarget.style.color = iconLinkStyle.color;
+                        e.currentTarget.style.transform = 'scale(1)';
+                    }}
                     title="Instagram Profile"
                 >
                     <FaInstagram />
                 </a>
 
-                 {/* LinkedIn Icon Link (Optional, but highly recommended for portfolios) */}
-                 <a
-                    href="https://www.linkedin.com/in/chinthada-murali-nagaraju-0746912b9/" // REPLACE with your LinkedIn profile URL
+                <a
+                    href="https://www.linkedin.com/in/chinthada-murali-nagaraju-0746912b9/"
                     target="_blank"
                     rel="noopener noreferrer"
                     style={iconLinkStyle}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = iconHoverStyle.color, e.currentTarget.style.transform = iconHoverStyle.transform)}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = iconLinkStyle.color, e.currentTarget.style.transform = 'scale(1)')}
+                    onMouseEnter={(e) => {
+                        e.currentTarget.style.color = iconHoverStyle.color;
+                        e.currentTarget.style.transform = iconHoverStyle.transform;
+                    }}
+                    onMouseLeave={(e) => {
+                        e.currentTarget.style.color = iconLinkStyle.color;
+                        e.currentTarget.style.transform = 'scale(1)';
+                    }}
                     title="LinkedIn Profile"
                 >
                     <FaLinkedin />
                 </a>
             </div>
 
-            
-            <p style={{ margin: '5px 0' }}>&copy; {new Date().getFullYear()} Murali. All rights reserved.</p>
+            <p style={{ margin: '5px 0', fontWeight: '500' }}>
+                &copy; {new Date().getFullYear()} Murali. All rights reserved.
+            </p>
         </footer>
     );
 }
